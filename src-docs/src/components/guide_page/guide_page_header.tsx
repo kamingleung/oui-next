@@ -32,7 +32,7 @@ export const GuidePageHeader: React.FunctionComponent<{}> = () => {
   function renderLogo() {
     return (
       <OuiHeaderLogo iconType="logoOpenSearch" href="#/" aria-label="OUI home">
-        OpenSearch UI v2.0.1 <OuiBetaBadge label="Beta" size="s" />
+        OpenSearch UI v2.0.1 <OuiBetaBadge label="Reset" size="s" />
       </OuiHeaderLogo>
     );
   }
