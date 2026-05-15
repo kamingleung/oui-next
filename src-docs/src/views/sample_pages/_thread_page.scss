@@ -652,11 +652,11 @@
     padding: 8px 0;
   }
 
-  // Match the flyout hover/active background color
+  // Match the flyout hover/active background color using Agentic OSD theme colors
   .ouiListGroupItem.ouiListGroupItem-isClickable:hover,
   .ouiListGroupItem.ouiListGroupItem-isClickable:focus-within,
   .ouiListGroupItem.ouiListGroupItem-isActive {
-    background-color: lightOrDarkTheme(#D4DADB, #383B3E) !important;
+    background-color: lightOrDarkTheme(#E8EDF8, #1E2E50) !important;
   }
 
   // Allow the multi-line label (title + subtitle) to wrap naturally
