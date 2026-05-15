@@ -16,28 +16,28 @@
 $ouiColorGhost: #FFF;
 $ouiColorInk: #111;
 
-// Core
-$ouiColorPrimary: #00B8DB;      // oklch(0.715 0.143 215.221)
-$ouiColorSecondary: #10B981;    // Emerald-500 (matches success)
-$ouiColorAccent: #FB64B6;       // oklch(0.718 0.202 349.761)
+// Core - Agentic OSD Utility Dark Palette
+$ouiColorPrimary: #7A9FD4;      // Sky - primary in dark mode
+$ouiColorSecondary: #4DC9A8;    // Jade (dark variant)
+$ouiColorAccent: #B8D4F0;       // Ice - accent in dark mode
 
-// Status
-$ouiColorSuccess: #10B981;      // Emerald-500
-$ouiColorWarning: #FBBF24;      // Amber
-$ouiColorDanger: #FF6467;       // oklch(0.704 0.191 22.216)
+// Status - Agentic OSD Utility Dark
+$ouiColorSuccess: #4DC9A8;      // Jade dark
+$ouiColorWarning: #E5C76B;      // Citrine (lighter for dark bg)
+$ouiColorDanger: #F5918F;       // Coral (lighter for dark bg)
 
 // Grays - Cool dark tones
-$ouiColorEmptyShade: #242526;   // Card surfaces
-$ouiColorLightestShade: #191A1B; // Muted backgrounds
-$ouiColorLightShade: #383B3E;   // Borders
-$ouiColorMediumShade: #A9B1B7;  // Muted text
-$ouiColorDarkShade: #B6BBC3;    // Secondary text
-$ouiColorDarkestShade: #E2E4E5; // Foreground
-$ouiColorFullShade: #F5F7FA;    // Brightest foreground
+$ouiColorEmptyShade: #1A2332;   // Card surfaces
+$ouiColorLightestShade: #0D1520; // Muted backgrounds
+$ouiColorLightShade: #2A3544;   // Borders
+$ouiColorMediumShade: #8A9AAD;  // Muted text
+$ouiColorDarkShade: #A8B5C4;    // Secondary text
+$ouiColorDarkestShade: #E2E8F0; // Foreground
+$ouiColorFullShade: #F7FAFC;    // Brightest foreground
 
-// Backgrounds
-$ouiPageBackgroundColor: #111; // Dark bg
-$ouiColorHighlight: #15171A;    // Accent
+// Backgrounds - Agentic OSD Utility Dark
+$ouiPageBackgroundColor: #060D1A; // Obsidian - dark mode bg
+$ouiColorHighlight: #1A2332;    // Accent
 
 // Form input background
 $ouiFormBackgroundColor: #2E2F30;

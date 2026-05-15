@@ -3,6 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+// Agentic OSD Utility Button Styles
+// Pill-shaped buttons with lift hover effect and premium shadows
+
 // Force light text/icons on filled buttons in light mode,
 // dark content in dark mode where primary is a lighter color
 // sass-lint:disable no-important
@@ -22,11 +25,19 @@
 .ouiButton--primary.ouiButton--fill:not(.ouiButton-isDisabled) {
   background-color: $ouiColorPrimary !important;
   border-color: $ouiColorPrimary !important;
+  box-shadow: 0 2px 8px rgba(46, 74, 143, 0.25) !important;
 
   &:hover,
   &:focus {
     background-color: lighten($ouiColorPrimary, 4%) !important;
     border-color: lighten($ouiColorPrimary, 4%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 16px rgba(46, 74, 143, 0.35) !important;
+  }
+
+  &:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 1px 4px rgba(46, 74, 143, 0.2) !important;
   }
 }
 
@@ -34,11 +45,19 @@
 .ouiButtonIcon--primary.ouiButtonIcon--fill:not(.ouiButtonIcon-isDisabled) {
   background-color: $ouiColorPrimary !important;
   border-color: $ouiColorPrimary !important;
+  box-shadow: 0 2px 8px rgba(46, 74, 143, 0.25) !important;
 
   &:hover,
   &:focus {
     background-color: lighten($ouiColorPrimary, 4%) !important;
     border-color: lighten($ouiColorPrimary, 4%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 16px rgba(46, 74, 143, 0.35) !important;
+  }
+
+  &:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 1px 4px rgba(46, 74, 143, 0.2) !important;
   }
 }
 
@@ -55,15 +74,23 @@
 }
 // sass-lint:enable no-important
 
-// Outline (non-fill) buttons — faint border with subtle background
+// Outline (non-fill) buttons — faint border with subtle background and lift effect
 // sass-lint:disable no-important
 .ouiButton:not(.ouiButton--fill):not(.ouiButton-isDisabled) {
   background-color: lightOrDarkTheme($ouiColorLightShade, $ouiColorLightShade) !important;
   border-color: transparentize($ouiColorLightShade, .7) !important;
+  transition: all 150ms ease-in-out !important;
 
   &:hover,
   &:focus {
     background-color: lightOrDarkTheme(darken($ouiColorLightestShade, 3%), lighten($ouiColorLightShade, 3%)) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  &:active {
+    transform: translateY(0) !important;
+    box-shadow: none !important;
   }
 }
 
@@ -130,6 +157,13 @@
   &:hover,
   &:focus {
     background-color: lightOrDarkTheme(lighten($ouiColorDarkShade, 5%), lighten($ouiColorLightShade, 3%)) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  &:active {
+    transform: translateY(0) !important;
+    box-shadow: none !important;
   }
 }
 
@@ -142,6 +176,7 @@
   color: $ouiColorMediumShade !important;
   box-shadow: none !important;
   opacity: .5 !important;
+  transform: none !important;
 
   .ouiButton__text,
   .ouiButton__icon {
@@ -150,7 +185,7 @@
 }
 // sass-lint:enable no-important
 
-// Icon buttons with base display — match outline button treatment
+// Icon buttons with base display — match outline button treatment with lift effect
 // sass-lint:disable no-important
 .ouiButtonIcon:not(.ouiButtonIcon--empty):not(.ouiButtonIcon--fill):not(.ouiButtonIcon-isDisabled) {
   background-color: $ouiColorLightShade !important;
@@ -163,34 +198,34 @@
   &:focus,
   &:focus-within {
     background-color: lightOrDarkTheme(darken($ouiColorLightestShade, 3%), lighten($ouiColorLightShade, 3%)) !important;
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25) !important;
-    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    transform: translateY(-2px) !important;
   }
 
   &:active {
-    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4) !important;
-    transform: translateY(1px) !important;
-    filter: brightness(0.85) !important;
+    box-shadow: none !important;
+    transform: translateY(0) !important;
+    filter: brightness(0.95) !important;
   }
 }
 
-// Icon buttons with fill display — hover/active shadows
+// Icon buttons with fill display — hover/active shadows with lift
 .ouiButtonIcon--fill:not(.ouiButtonIcon-isDisabled) {
   transition: box-shadow 150ms ease-in-out, background-color 150ms ease-in-out, transform 150ms ease-in-out, filter 150ms ease-in-out !important;
-  box-shadow: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
   transform: translateY(0) !important;
 
   &:hover,
   &:focus,
   &:focus-within {
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25) !important;
-    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+    transform: translateY(-2px) !important;
   }
 
   &:active {
-    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4) !important;
-    transform: translateY(1px) !important;
-    filter: brightness(0.85) !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1) !important;
+    transform: translateY(0) !important;
+    filter: brightness(0.95) !important;
   }
 }
 // sass-lint:enable no-important

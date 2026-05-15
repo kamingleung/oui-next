@@ -3,7 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+// Agentic OSD Utility Font Imports
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 :root {
   --oui-font-family: #{$ouiFontFamily};
   --oui-code-font-family: #{$ouiCodeFontFamily};
+  --oui-display-font-family: #{$ouiDisplayFontFamily};
 }

@@ -204,7 +204,7 @@
 .ouiListGroupItem-isClickable:hover,
 .ouiListGroupItem-isClickable:focus-within,
 .ouiListGroupItem-isActive {
-  background-color: lightOrDarkTheme(#D4DADB, #383B3E) !important;
+  background-color: lightOrDarkTheme(rgba(46, 74, 143, 0.08), rgba(122, 159, 212, 0.15)) !important;
 }
 
 // Grayed out disabled/unclickable states in dropdowns and selectable lists

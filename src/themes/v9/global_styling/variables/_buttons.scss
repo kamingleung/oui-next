@@ -19,13 +19,14 @@ $ouiButtonColorDisabled: tintOrShade($ouiColorPrimary, 60%, 60%) !default;
 $ouiButtonColorDisabledText: makeDisabledContrastColor($ouiButtonColorDisabled) !default;
 $ouiButtonColorGhostDisabled: lightOrDarkTheme($ouiColorDarkShade, $ouiColorLightShade) !default;
 
-$ouiButtonBorderRadius: $ouiBorderRadius !default;
+$ouiButtonBorderRadius: 9999px !default; // Pill-shaped buttons (Agentic OSD Utility)
 
-// Add transition support
+// Add transition support with lift effect
 // sass-lint:disable indentation
 $ouiButtonTransition: background-color $ouiAnimSpeedFast $ouiAnimEaseInOut,
   border-color $ouiAnimSpeedFast $ouiAnimEaseInOut,
-  box-shadow $ouiAnimSpeedFast $ouiAnimEaseInOut !default;
+  box-shadow $ouiAnimSpeedFast $ouiAnimEaseInOut,
+  transform $ouiAnimSpeedFast $ouiAnimEaseInOut !default;
 // sass-lint:enable indentation
 
 // Modifier naming and colors.
