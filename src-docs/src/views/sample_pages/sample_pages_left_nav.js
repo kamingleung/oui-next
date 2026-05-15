@@ -26,7 +26,6 @@ import {
   OuiListGroup,
   OuiListGroupItem,
   OuiText,
-  OuiTitle,
   OuiButtonEmpty,
   OuiPopover,
   OuiTabs,
@@ -220,6 +219,7 @@ const TOOLS_SUBGROUPS = [
 ];
 
 // Items nested under Manage workspace in expanded mode
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const WORKSPACE_CHILDREN = [
   {
     key: 'workspace-details',
@@ -389,9 +389,7 @@ const ChildPagePopoverContent = ({ pageKey, onNavigate, onViewAll }) => {
       </div>
       {isEnhanced && onViewAll && (
         <div className="samplePagesLeftNav__threadPopoverFooter">
-          <OuiButtonEmpty
-            size="xs"
-            onClick={() => onViewAll(pageKey)}>
+          <OuiButtonEmpty size="xs" onClick={() => onViewAll(pageKey)}>
             View all
           </OuiButtonEmpty>
         </div>
@@ -591,6 +589,7 @@ const DISCOVER_TAB_ITEMS = {
   ],
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const DiscoverPanelContent = ({ onItemSelect, selectedItem }) => {
   const [activeTab, setActiveTab] = useState('logs');
   return (
@@ -668,6 +667,7 @@ const ALERTING_TAB_ITEMS = {
   ],
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const AlertsPanelContent = ({ onItemSelect, selectedItem }) => {
   const [activeTab, setActiveTab] = useState('alerts');
   return (
@@ -772,6 +772,7 @@ const MetricsPanelContent = ({ onItemSelect, selectedItem, onPageChange }) => (
 );
 
 // Panel content for Skills tab
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SkillsPanelContent = ({ onItemSelect, selectedItem }) => (
   <OuiListGroup gutterSize="none">
     <OuiListGroupItem
@@ -868,6 +869,7 @@ const ASSETS_TAB_ITEMS = {
   ],
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const AssetsPanelContent = ({ onItemSelect, selectedItem }) => {
   const [activeTab, setActiveTab] = useState('visualizations');
   return (
@@ -958,6 +960,7 @@ const WorkspacePanelContent = ({ onItemSelect, selectedItem }) => {
 };
 
 // Panel content for More tab — renders overflow items dynamically
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const MorePanelContent = ({
   onPageChange,
   onNavigateToPage,
@@ -1063,7 +1066,7 @@ const ThreadPopoverContent = ({ onNavigate, onViewAll }) => {
         />
       </div>
       <div className="samplePagesLeftNav__threadPopoverContent">
-        {items.map((item, index) => (
+        {items.map((item, _index) => (
           <button
             key={item.key}
             type="button"
@@ -1079,9 +1082,7 @@ const ThreadPopoverContent = ({ onNavigate, onViewAll }) => {
         ))}
       </div>
       <div className="samplePagesLeftNav__threadPopoverFooter">
-        <OuiButtonEmpty
-          size="xs"
-          onClick={() => onViewAll('thread')}>
+        <OuiButtonEmpty size="xs" onClick={() => onViewAll('thread')}>
           View all
         </OuiButtonEmpty>
       </div>
@@ -1121,7 +1122,7 @@ const DashboardsPopoverContent = ({ onNavigate, onViewAll }) => {
         />
       </div>
       <div className="samplePagesLeftNav__threadPopoverContent">
-        {items.map((item, index) => (
+        {items.map((item, _index) => (
           <button
             key={item.key}
             type="button"
@@ -1137,9 +1138,7 @@ const DashboardsPopoverContent = ({ onNavigate, onViewAll }) => {
         ))}
       </div>
       <div className="samplePagesLeftNav__threadPopoverFooter">
-        <OuiButtonEmpty
-          size="xs"
-          onClick={() => onViewAll('dashboards')}>
+        <OuiButtonEmpty size="xs" onClick={() => onViewAll('dashboards')}>
           View all
         </OuiButtonEmpty>
       </div>
@@ -1182,7 +1181,8 @@ const LogsPopoverContent = ({ onNavigate, onViewAll }) => {
       {
         key: 'query-top-users',
         title: 'Top users by request count',
-        subtitle: 'source=logs | stats count() as requests by user | sort -requests | head 50',
+        subtitle:
+          'source=logs | stats count() as requests by user | sort -requests | head 50',
       },
     ],
   };
@@ -1201,10 +1201,14 @@ const LogsPopoverContent = ({ onNavigate, onViewAll }) => {
       </div>
       <div style={{ padding: '0 12px', marginTop: 8 }}>
         <OuiTabs size="s" display="condensed">
-          <OuiTab isSelected={activeTab === 'saved-results'} onClick={() => setActiveTab('saved-results')}>
+          <OuiTab
+            isSelected={activeTab === 'saved-results'}
+            onClick={() => setActiveTab('saved-results')}>
             Saved results
           </OuiTab>
-          <OuiTab isSelected={activeTab === 'saved-query'} onClick={() => setActiveTab('saved-query')}>
+          <OuiTab
+            isSelected={activeTab === 'saved-query'}
+            onClick={() => setActiveTab('saved-query')}>
             Saved query
           </OuiTab>
         </OuiTabs>
@@ -1226,9 +1230,7 @@ const LogsPopoverContent = ({ onNavigate, onViewAll }) => {
         ))}
       </div>
       <div className="samplePagesLeftNav__threadPopoverFooter">
-        <OuiButtonEmpty
-          size="xs"
-          onClick={() => onViewAll('logs')}>
+        <OuiButtonEmpty size="xs" onClick={() => onViewAll('logs')}>
           View all
         </OuiButtonEmpty>
       </div>
@@ -1261,17 +1263,20 @@ const MetricsPopoverContent = ({ onNavigate, onViewAll }) => {
       {
         key: 'query-disk-io',
         title: 'Disk I/O by volume',
-        subtitle: 'source=metrics | stats avg(disk_io) by volume | sort -avg_disk_io',
+        subtitle:
+          'source=metrics | stats avg(disk_io) by volume | sort -avg_disk_io',
       },
       {
         key: 'query-network-errors',
         title: 'Network error rate',
-        subtitle: 'source=metrics | where net_errors > 0 | stats sum(net_errors) by interface',
+        subtitle:
+          'source=metrics | where net_errors > 0 | stats sum(net_errors) by interface',
       },
       {
         key: 'query-gc-pauses',
         title: 'GC pause duration',
-        subtitle: 'source=metrics | stats max(gc_pause_ms) by service | sort -max_gc_pause_ms',
+        subtitle:
+          'source=metrics | stats max(gc_pause_ms) by service | sort -max_gc_pause_ms',
       },
     ],
   };
@@ -1290,10 +1295,14 @@ const MetricsPopoverContent = ({ onNavigate, onViewAll }) => {
       </div>
       <div style={{ padding: '0 12px', marginTop: 8 }}>
         <OuiTabs size="s" display="condensed">
-          <OuiTab isSelected={activeTab === 'saved-results'} onClick={() => setActiveTab('saved-results')}>
+          <OuiTab
+            isSelected={activeTab === 'saved-results'}
+            onClick={() => setActiveTab('saved-results')}>
             Saved results
           </OuiTab>
-          <OuiTab isSelected={activeTab === 'saved-query'} onClick={() => setActiveTab('saved-query')}>
+          <OuiTab
+            isSelected={activeTab === 'saved-query'}
+            onClick={() => setActiveTab('saved-query')}>
             Saved query
           </OuiTab>
         </OuiTabs>
@@ -1315,9 +1324,7 @@ const MetricsPopoverContent = ({ onNavigate, onViewAll }) => {
         ))}
       </div>
       <div className="samplePagesLeftNav__threadPopoverFooter">
-        <OuiButtonEmpty
-          size="xs"
-          onClick={() => onViewAll('metrics')}>
+        <OuiButtonEmpty size="xs" onClick={() => onViewAll('metrics')}>
           View all
         </OuiButtonEmpty>
       </div>
@@ -1349,7 +1356,11 @@ const PopoverItemWithHover = ({ pageKey, children, onNavigate, onViewAll }) => {
         panelPaddingSize="s"
         panelClassName="samplePagesLeftNav__popoverPanel">
         <div onMouseEnter={open} onMouseLeave={close}>
-          <ChildPagePopoverContent pageKey={pageKey} onNavigate={onNavigate} onViewAll={onViewAll} />
+          <ChildPagePopoverContent
+            pageKey={pageKey}
+            onNavigate={onNavigate}
+            onViewAll={onViewAll}
+          />
         </div>
       </OuiPopover>
     </div>
@@ -1383,7 +1394,10 @@ const ToolsPanelContent = ({
     <div className="samplePagesLeftNav__toolsPopover">
       <div className="samplePagesLeftNav__toolsPopoverHeader">More</div>
       <div className="samplePagesLeftNav__toolsPopoverContent">
-        <PopoverItemWithHover pageKey="notebooks" onNavigate={handleNavigate} onViewAll={onViewAll}>
+        <PopoverItemWithHover
+          pageKey="notebooks"
+          onNavigate={handleNavigate}
+          onViewAll={onViewAll}>
           <button
             type="button"
             className="samplePagesLeftNav__toolsPopoverItem"
@@ -1562,6 +1576,7 @@ const WorkspaceNavPanelContent = ({
   onItemSelect: onSelectItem,
   onPopoverNavigate,
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleNavigate = (page, itemKey) => {
     if (onPopoverNavigate) {
       onPopoverNavigate(page, itemKey);
@@ -1664,7 +1679,12 @@ const APPEARANCE_OPTIONS = [
   { key: 'system', label: 'System' },
 ];
 
-const SettingsPopoverContent = ({ onPageChange, themeContext, appearanceSelection, onAppearanceChange }) => {
+const SettingsPopoverContent = ({
+  _onPageChange,
+  themeContext,
+  appearanceSelection,
+  onAppearanceChange,
+}) => {
   const [appearanceOpen, setAppearanceOpen] = useState(false);
   const appearanceTimer = useRef(null);
   const openAppearance = () => {
@@ -1679,7 +1699,8 @@ const SettingsPopoverContent = ({ onPageChange, themeContext, appearanceSelectio
     if (!themeContext) return;
     if (onAppearanceChange) onAppearanceChange(themeKey);
     if (themeKey === 'system') {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
+        .matches;
       themeContext.changeTheme(prefersDark ? 'v9-dark' : 'v9-light');
     } else {
       themeContext.changeTheme(themeKey);
@@ -1735,7 +1756,12 @@ const SettingsPopoverContent = ({ onPageChange, themeContext, appearanceSelectio
                 <span className="samplePagesLeftNav__toolsPopoverItemLabel">
                   Appearance
                 </span>
-                <OuiIcon type="arrowRight" size="m" color="subdued" style={{ marginRight: 8 }} />
+                <OuiIcon
+                  type="arrowRight"
+                  size="m"
+                  color="subdued"
+                  style={{ marginRight: 8 }}
+                />
               </button>
             }
             isOpen={appearanceOpen}
@@ -1755,7 +1781,12 @@ const SettingsPopoverContent = ({ onPageChange, themeContext, appearanceSelectio
                       onClick={() => handleThemeSelect(opt.key)}>
                       <div
                         className="samplePagesLeftNav__navItemIconWrap"
-                      style={{ visibility: appearanceSelection === opt.key ? 'visible' : 'hidden' }}>
+                        style={{
+                          visibility:
+                            appearanceSelection === opt.key
+                              ? 'visible'
+                              : 'hidden',
+                        }}>
                         <OuiIcon type="check" size="m" />
                       </div>
                       <span>{opt.label}</span>
@@ -2127,21 +2158,25 @@ export const SamplePagesLeftNav = ({
   onPopoverNavigate,
   onViewAll,
   onItemSelect,
-  selectedItem,
+  _selectedItem,
   onLogoClick,
   createThreadRef,
   _onContinueAsThread,
   onAskAi,
-  mainItems,
-  overflowItems,
+  _mainItems,
+  _overflowItems,
   _onLayoutChange,
 }) => {
   const themeContext = useContext(ThemeContext);
   const isDark = themeContext.theme === 'v9-dark';
-  const [appearanceSelection, setAppearanceSelection] = useState(isDark ? 'v9-dark' : 'v9-light');
+  const [appearanceSelection, setAppearanceSelection] = useState(
+    isDark ? 'v9-dark' : 'v9-light'
+  );
   const [expandedTab, setExpandedTab] = useState(null);
-  const [isCollapsing, setIsCollapsing] = useState(false);
+  const [, setIsCollapsing] = useState(false);
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const [appsPopoverOpen, setAppsPopoverOpen] = useState(false);
+  /* eslint-enable @typescript-eslint/no-unused-vars */
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [navPopover, setNavPopover] = useState(null);
   const navItemRefs = useRef({});
@@ -2155,12 +2190,14 @@ export const SamplePagesLeftNav = ({
   const closeNavPopover = useCallback(() => {
     navPopoverTimer.current = setTimeout(() => setNavPopover(null), 150);
   }, []);
-  const [threads, setThreads] = useState(DEFAULT_THREADS);
+  const [, setThreads] = useState(DEFAULT_THREADS);
 
   // Expand/collapse state
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const [isNavLocked, setIsNavLocked] = useState(false);
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const [isHoveringNav, setIsHoveringNav] = useState(false);
+  /* eslint-enable @typescript-eslint/no-unused-vars */
 
   // Auto-collapse nav when page changes (unless locked)
   useEffect(() => {
@@ -2216,11 +2253,13 @@ export const SamplePagesLeftNav = ({
     }, 200);
   }, [isNavLocked]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleGoToSettings = useCallback(() => {
     collapsePanel();
     onPageChange('settings');
   }, [collapsePanel, onPageChange]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const toggleTheme = () => {
     themeContext.changeTheme(isDark ? 'v9-light' : 'v9-dark');
   };
@@ -2332,13 +2371,16 @@ export const SamplePagesLeftNav = ({
     'sample-data': 'Sample data',
   };
 
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   let expandedPanelLabel = null;
   if (expandedTab) {
     expandedPanelLabel = expandedNavItem
       ? expandedNavItem.label
       : PANEL_LABELS[expandedTab] || expandedTab;
   }
+  /* eslint-enable @typescript-eslint/no-unused-vars */
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const PanelComponent = expandedTab ? PANEL_CONTENT[expandedTab] : null;
 
   // Handle child item click in expanded Tools/Workspace groups
@@ -2371,7 +2413,9 @@ export const SamplePagesLeftNav = ({
           <div className="samplePagesLeftNav__headerActions">
             <OuiButtonIcon
               iconType={isNavLocked ? 'lock' : 'lockOpen'}
-              aria-label={isNavLocked ? 'Unlock navigation' : 'Lock navigation open'}
+              aria-label={
+                isNavLocked ? 'Unlock navigation' : 'Lock navigation open'
+              }
               color="text"
               display="empty"
               size="xs"
@@ -2397,7 +2441,9 @@ export const SamplePagesLeftNav = ({
           <button
             type="button"
             className={`samplePagesLeftNav__navItemExpanded${
-              activePage === 'home' ? ' samplePagesLeftNav__navItemExpanded--active' : ''
+              activePage === 'home'
+                ? ' samplePagesLeftNav__navItemExpanded--active'
+                : ''
             }`}
             aria-current={activePage === 'home' ? 'page' : undefined}
             onClick={() => {
@@ -2709,7 +2755,7 @@ export const SamplePagesLeftNav = ({
                   </div>
                   {isOpen && (
                     <div className="samplePagesLeftNav__subgroupChildren">
-                      {sg.children.map((child, childIdx) => {
+                      {sg.children.map((child, _childIdx) => {
                         const isChildActive = activePage === child.page;
                         const popoverData =
                           CHILD_PAGE_POPOVER_ITEMS[child.page];
@@ -3008,7 +3054,8 @@ export const SamplePagesLeftNav = ({
                           setNavPopover(null);
                           onViewAll(page);
                         }}
-                      />) : (
+                      />
+                    ) : (
                       <PopoverContent
                         onNavigate={(page, itemKey) => {
                           setNavPopover(null);

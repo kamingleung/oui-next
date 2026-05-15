@@ -1,3 +1,4 @@
+// sass-lint:disable no-empty-rulesets
 /*
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -555,7 +556,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  
+
   // Vertical line on the container — spans from first to last child
   &::before {
     content: '';
@@ -791,6 +792,7 @@
     width: 0;
     opacity: 0;
   }
+
   to {
     width: 280px;
     opacity: 1;
@@ -802,6 +804,7 @@
     width: 280px;
     opacity: 1;
   }
+
   to {
     width: 0;
     opacity: 0;

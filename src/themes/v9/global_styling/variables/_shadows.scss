@@ -10,23 +10,23 @@
  */
 
 // sass-lint:disable leading-zero
-// Shadows — subtle
-$ouiShadowColor: #000 !default;
-$ouiShadowColorLarge: #000 !default;
+// Shadows — Agentic OSD utility style (subtle with blue-tinted ring)
+$ouiShadowColor: #0E1525 !default;
+$ouiShadowColorLarge: #0E1525 !default;
 
 // Shadow opacity
-$ouiShadowOpacity: .1 !default;
+$ouiShadowOpacity: .06 !default;
 
 // Base shadow layer
-$ouiShadowBase: 0 1px 3px 0 rgba(0, 0, 0, .05);
+$ouiShadowBase: 0 0 0 1px rgba(14, 21, 37, .06), 0 2px 8px rgba(14, 21, 37, .05) !default;
 
 // Subtle shadow levels
-$ouiShadow1: 0 1px 3px 0 rgba(0, 0, 0, .05);
-$ouiShadow2: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px -1px rgba(0, 0, 0, .1);
-$ouiShadow3: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .1);
-$ouiShadow4: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 4px 6px -1px rgba(0, 0, 0, .1);
-$ouiShadow5: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 8px 10px -1px rgba(0, 0, 0, .1);
-$ouiShadow6: 0 1px 3px 0 rgba(0, 0, 0, .25);
+$ouiShadow1: 0 2px 8px rgba(14, 21, 37, .05) !default;
+$ouiShadow2: 0 0 0 1px rgba(14, 21, 37, .06), 0 4px 12px rgba(14, 21, 37, .06) !default;
+$ouiShadow3: 0 0 0 1px rgba(14, 21, 37, .06), 0 8px 24px rgba(14, 21, 37, .06) !default;
+$ouiShadow4: 0 0 0 1px rgba(14, 21, 37, .06), 0 8px 32px rgba(14, 21, 37, .06) !default;
+$ouiShadow5: 0 0 0 1px rgba(14, 21, 37, .06), 0 12px 40px rgba(14, 21, 37, .08) !default;
+$ouiShadow6: 0 0 0 1px rgba(14, 21, 37, .08), 0 16px 48px rgba(14, 21, 37, .1) !default;
 
 // Local elevation z-index values
 $ouiLocalZIndex1: 1;

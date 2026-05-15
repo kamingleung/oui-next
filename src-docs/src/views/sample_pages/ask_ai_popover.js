@@ -99,20 +99,23 @@ export const AskAiPopover = ({
   }, [isOpen, initialPrompt]);
 
   // Drag handlers — only for popover mode
-  const handleDragStart = useCallback((e) => {
-    if (isPanel) return;
-    if (!popoverRef.current) return;
-    e.preventDefault();
-    const rect = popoverRef.current.getBoundingClientRect();
-    dragState.current = {
-      isDragging: true,
-      startX: e.clientX,
-      startY: e.clientY,
-      origX: rect.left,
-      origY: rect.top,
-    };
-    document.body.style.userSelect = 'none';
-  }, [isPanel]);
+  const handleDragStart = useCallback(
+    (e) => {
+      if (isPanel) return;
+      if (!popoverRef.current) return;
+      e.preventDefault();
+      const rect = popoverRef.current.getBoundingClientRect();
+      dragState.current = {
+        isDragging: true,
+        startX: e.clientX,
+        startY: e.clientY,
+        origX: rect.left,
+        origY: rect.top,
+      };
+      document.body.style.userSelect = 'none';
+    },
+    [isPanel]
+  );
 
   useEffect(() => {
     if (isPanel) return;
@@ -175,13 +178,25 @@ export const AskAiPopover = ({
   if (!isOpen) return null;
 
   // Panel mode: no inline positioning, rendered as a flex child
-  const popoverStyle = isPanel
-    ? {}
-    : hasBeenDragged
-    ? { position: 'fixed', left: position.x, top: position.y, zIndex: 10000 }
-    : anchorPosition
-    ? { position: 'fixed', top: anchorPosition.top, left: anchorPosition.left, transform: 'translateX(-50%)', zIndex: 10000 }
-    : {};
+  let popoverStyle = {};
+  if (isPanel) {
+    popoverStyle = {};
+  } else if (hasBeenDragged) {
+    popoverStyle = {
+      position: 'fixed',
+      left: position.x,
+      top: position.y,
+      zIndex: 10000,
+    };
+  } else if (anchorPosition) {
+    popoverStyle = {
+      position: 'fixed',
+      top: anchorPosition.top,
+      left: anchorPosition.left,
+      transform: 'translateX(-50%)',
+      zIndex: 10000,
+    };
+  }
 
   const className = isPanel
     ? 'askAiPopover askAiPopover--panel'
@@ -190,14 +205,13 @@ export const AskAiPopover = ({
       }`;
 
   return (
-    <div
-      ref={popoverRef}
-      className={className}
-      style={popoverStyle}>
+    <div ref={popoverRef} className={className} style={popoverStyle}>
       {/* Header */}
       {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <div
-        className={`askAiPopover__header${isPanel ? ' askAiPopover__header--panel' : ''}`}
+        className={`askAiPopover__header${
+          isPanel ? ' askAiPopover__header--panel' : ''
+        }`}
         onMouseDown={!isPanel ? handleDragStart : undefined}
         role="banner">
         <div className="askAiPopover__headerLeft">

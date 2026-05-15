@@ -10,6 +10,7 @@
  */
 
 /* eslint-disable import/no-named-as-default-member */
+// eslint-disable-next-line import/no-unresolved
 import fc from 'fast-check';
 import {
   ALL_DRAGGABLE_ITEMS,

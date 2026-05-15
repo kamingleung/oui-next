@@ -10,10 +10,7 @@
  */
 
 import React from 'react';
-import {
-  OuiButtonIcon,
-  OuiToolTip,
-} from '../../../../src/components';
+import { OuiButtonIcon, OuiToolTip } from '../../../../src/components';
 import { AskAiInline } from './ask_ai_inline';
 
 export const DetailPageHeader = ({
@@ -29,13 +26,13 @@ export const DetailPageHeader = ({
   extraActions = [],
   headerControls,
   isAskAiPanelOpen,
-  onAskAiToggle,
+  _onAskAiToggle,
 }) => {
   // Detached popover state (only used when user clicks "detach" from the panel)
   const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
   const [isHighlightMode, setIsHighlightMode] = React.useState(false);
   const [highlightPrompt, setHighlightPrompt] = React.useState(null);
-  const [highlightPosition, setHighlightPosition] = React.useState(null);
+  const [, setHighlightPosition] = React.useState(null);
 
   const isAskAiActive = isAskAiPanelOpen || isPopoverOpen;
 
@@ -52,10 +49,6 @@ export const DetailPageHeader = ({
     setIsPopoverOpen(false);
     setHighlightPrompt(null);
     setHighlightPosition(null);
-  };
-
-  const handlePopoverMinimize = () => {
-    setIsPopoverOpen(false);
   };
 
   const handleHighlightToggle = () => {
@@ -107,7 +100,9 @@ export const DetailPageHeader = ({
       )}
       <div className="detailPageHeader__title">
         {onTogglePanel && (
-          <OuiToolTip content={isPanelOpen ? 'Close panel' : 'Open panel'} position="bottom">
+          <OuiToolTip
+            content={isPanelOpen ? 'Close panel' : 'Open panel'}
+            position="bottom">
             <OuiButtonIcon
               iconType={isPanelOpen ? 'folderOpen' : 'folderClosed'}
               aria-label={isPanelOpen ? 'Close panel' : 'Open panel'}
@@ -139,7 +134,10 @@ export const DetailPageHeader = ({
               {action.render()}
             </React.Fragment>
           ) : (
-            <OuiToolTip key={`extra-${index}`} content={action.label} position="bottom">
+            <OuiToolTip
+              key={`extra-${index}`}
+              content={action.label}
+              position="bottom">
               <OuiButtonIcon
                 iconType={action.iconType}
                 aria-label={action.label}
@@ -165,7 +163,9 @@ export const DetailPageHeader = ({
         <div className="askAiFloating">
           <OuiToolTip content="Highlight to Ask AI" position="top">
             <OuiButtonIcon
-              className={`askAiFloating__button${isHighlightMode ? ' askAiFloating__button--active' : ''}`}
+              className={`askAiFloating__button${
+                isHighlightMode ? ' askAiFloating__button--active' : ''
+              }`}
               iconType="visText"
               aria-label="Highlight to Ask AI"
               size="m"
@@ -177,7 +177,9 @@ export const DetailPageHeader = ({
           {!isPopoverOpen && (
             <OuiToolTip content="Ask AI" position="top">
               <OuiButtonIcon
-                className={`askAiFloating__button${isAskAiActive ? ' askAiFloating__button--active' : ''}`}
+                className={`askAiFloating__button${
+                  isAskAiActive ? ' askAiFloating__button--active' : ''
+                }`}
                 iconType="generate"
                 aria-label="Ask AI"
                 size="m"

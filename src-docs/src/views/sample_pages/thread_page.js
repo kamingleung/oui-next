@@ -26,7 +26,6 @@ import {
   OuiStat,
   OuiTab,
   OuiTabs,
-  OuiTitle,
   OuiText,
   OuiToolTip,
   OuiCompressedTextArea,
@@ -81,7 +80,8 @@ const THREADS = {
           title: 'Retry Storm Mitigation Runbook',
           description:
             'Step-by-step guide for identifying and resolving retry storms in the checkout service, including circuit breaker configuration and connection pool tuning.',
-          image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop',
+          image:
+            'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop',
         },
       },
     ],
@@ -288,7 +288,8 @@ retry_budget:
       {
         role: 'user',
         author: 'Dana Kim',
-        content: 'Can you confirm the ACME key rotation will not cause downtime?',
+        content:
+          'Can you confirm the ACME key rotation will not cause downtime?',
       },
       {
         role: 'assistant',
@@ -407,9 +408,7 @@ const PageAttachment = ({ title, description, onAddToCanvas, canvasItems }) => {
         onClick={() => onAddToCanvas({ type: 'page', title, description })}
       />
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-      <div
-        className="threadPage__attachment"
-        role="presentation">
+      <div className="threadPage__attachment" role="presentation">
         <OuiText size="xs">
           <strong>{title}</strong>
         </OuiText>
@@ -424,7 +423,15 @@ const PageAttachment = ({ title, description, onAddToCanvas, canvasItems }) => {
 };
 
 // Attachment card: link preview (Tool UI style — image + title + description + URL)
-const LinkPreviewAttachment = ({ href, title, description, image, onAddToCanvas, canvasItems }) => {
+const LinkPreviewAttachment = ({
+  href,
+  rel = 'noopener noreferrer',
+  title,
+  description,
+  image,
+  onAddToCanvas,
+  canvasItems,
+}) => {
   const added = canvasItems.some(
     (c) => c.type === 'link-preview' && c.href === href
   );
@@ -433,13 +440,19 @@ const LinkPreviewAttachment = ({ href, title, description, image, onAddToCanvas,
       <AddToCanvasButton
         added={added}
         onClick={() =>
-          onAddToCanvas({ type: 'link-preview', href, title, description, image })
+          onAddToCanvas({
+            type: 'link-preview',
+            href,
+            title,
+            description,
+            image,
+          })
         }
       />
       <a
         href={href}
         target="_blank"
-        rel="noopener noreferrer"
+        rel={rel}
         className="threadPage__attachment threadPage__attachment--linkPreview">
         {image && (
           <div className="threadPage__linkPreviewImage">
@@ -465,7 +478,12 @@ const LinkPreviewAttachment = ({ href, title, description, image, onAddToCanvas,
 };
 
 // Attachment card: stats display (Tool UI style — grid of key metrics)
-const StatsDisplayAttachment = ({ title, stats, onAddToCanvas, canvasItems }) => {
+const StatsDisplayAttachment = ({
+  title,
+  stats,
+  onAddToCanvas,
+  canvasItems,
+}) => {
   const added = canvasItems.some(
     (c) => c.type === 'stats-display' && c.title === title
   );
@@ -481,7 +499,11 @@ const StatsDisplayAttachment = ({ title, stats, onAddToCanvas, canvasItems }) =>
             <strong>{title}</strong>
           </OuiText>
         )}
-        <OuiFlexGroup gutterSize="l" wrap responsive={false} className="threadPage__statsGrid">
+        <OuiFlexGroup
+          gutterSize="l"
+          wrap
+          responsive={false}
+          className="threadPage__statsGrid">
           {stats.map((stat, i) => (
             <OuiFlexItem key={i} grow={false}>
               <OuiStat
@@ -500,7 +522,13 @@ const StatsDisplayAttachment = ({ title, stats, onAddToCanvas, canvasItems }) =>
 };
 
 // Attachment card: data table (Tool UI style — tabular data)
-const DataTableAttachment = ({ title, columns, rows, onAddToCanvas, canvasItems }) => {
+const DataTableAttachment = ({
+  title,
+  columns,
+  rows,
+  onAddToCanvas,
+  canvasItems,
+}) => {
   const added = canvasItems.some(
     (c) => c.type === 'data-table' && c.title === title
   );
@@ -508,7 +536,9 @@ const DataTableAttachment = ({ title, columns, rows, onAddToCanvas, canvasItems 
     <div className="threadPage__attachmentWrap">
       <AddToCanvasButton
         added={added}
-        onClick={() => onAddToCanvas({ type: 'data-table', title, columns, rows })}
+        onClick={() =>
+          onAddToCanvas({ type: 'data-table', title, columns, rows })
+        }
       />
       <div className="threadPage__attachment threadPage__attachment--dataTable">
         {title && (
@@ -542,7 +572,13 @@ const DataTableAttachment = ({ title, columns, rows, onAddToCanvas, canvasItems 
 };
 
 // Attachment card: code block (Tool UI style — syntax-highlighted code)
-const CodeBlockAttachment = ({ title, language, code, onAddToCanvas, canvasItems }) => {
+const CodeBlockAttachment = ({
+  title,
+  language,
+  code,
+  onAddToCanvas,
+  canvasItems,
+}) => {
   const added = canvasItems.some(
     (c) => c.type === 'code-block' && c.code === code
   );
@@ -550,7 +586,9 @@ const CodeBlockAttachment = ({ title, language, code, onAddToCanvas, canvasItems
     <div className="threadPage__attachmentWrap">
       <AddToCanvasButton
         added={added}
-        onClick={() => onAddToCanvas({ type: 'code-block', title, language, code })}
+        onClick={() =>
+          onAddToCanvas({ type: 'code-block', title, language, code })
+        }
       />
       <div className="threadPage__attachment threadPage__attachment--codeBlock">
         {title && (
@@ -558,7 +596,11 @@ const CodeBlockAttachment = ({ title, language, code, onAddToCanvas, canvasItems
             <strong>{title}</strong>
           </OuiText>
         )}
-        <OuiCodeBlock language={language} fontSize="s" paddingSize="s" isCopyable>
+        <OuiCodeBlock
+          language={language}
+          fontSize="s"
+          paddingSize="s"
+          isCopyable>
           {code}
         </OuiCodeBlock>
       </div>
@@ -863,19 +905,20 @@ export const ThreadPage = ({
   const handleAddToCanvas = useCallback((item) => {
     setCanvasItems((prev) => {
       // Deduplicate by matching type + title/query/href/code
-      const exists = prev.some(
-        (existing) =>
-          existing.type === item.type &&
-          (item.type === 'page'
-            ? existing.title === item.title
-            : item.type === 'link-preview'
-            ? existing.href === item.href
-            : item.type === 'code-block'
-            ? existing.code === item.code
-            : item.type === 'stats-display' || item.type === 'data-table' || item.type === 'chart'
-            ? existing.title === item.title
-            : existing.query === item.query)
-      );
+      const exists = prev.some((existing) => {
+        if (existing.type !== item.type) return false;
+        if (item.type === 'page') return existing.title === item.title;
+        if (item.type === 'link-preview') return existing.href === item.href;
+        if (item.type === 'code-block') return existing.code === item.code;
+        if (
+          item.type === 'stats-display' ||
+          item.type === 'data-table' ||
+          item.type === 'chart'
+        ) {
+          return existing.title === item.title;
+        }
+        return existing.query === item.query;
+      });
       if (exists) return prev;
       return [...prev, item];
     });
@@ -1058,16 +1101,36 @@ export const ThreadPage = ({
                 <OuiContextMenuPanel
                   hasFocus={false}
                   items={[
-                    <OuiContextMenuItem key="skills" onClick={() => { setIsSettingsOpen(false); onPageChange && onPageChange('ai-skills'); }}>
+                    <OuiContextMenuItem
+                      key="skills"
+                      onClick={() => {
+                        setIsSettingsOpen(false);
+                        onPageChange && onPageChange('ai-skills');
+                      }}>
                       Skills
                     </OuiContextMenuItem>,
-                    <OuiContextMenuItem key="memories" onClick={() => { setIsSettingsOpen(false); onPageChange && onPageChange('ai-memories'); }}>
+                    <OuiContextMenuItem
+                      key="memories"
+                      onClick={() => {
+                        setIsSettingsOpen(false);
+                        onPageChange && onPageChange('ai-memories');
+                      }}>
                       Memories
                     </OuiContextMenuItem>,
-                    <OuiContextMenuItem key="automations" onClick={() => { setIsSettingsOpen(false); onPageChange && onPageChange('ai-automations'); }}>
+                    <OuiContextMenuItem
+                      key="automations"
+                      onClick={() => {
+                        setIsSettingsOpen(false);
+                        onPageChange && onPageChange('ai-automations');
+                      }}>
                       Automations
                     </OuiContextMenuItem>,
-                    <OuiContextMenuItem key="mcp" onClick={() => { setIsSettingsOpen(false); onPageChange && onPageChange('ai-mcp-servers'); }}>
+                    <OuiContextMenuItem
+                      key="mcp"
+                      onClick={() => {
+                        setIsSettingsOpen(false);
+                        onPageChange && onPageChange('ai-mcp-servers');
+                      }}>
                       MCP Servers
                     </OuiContextMenuItem>,
                   ]}
@@ -1184,7 +1247,8 @@ export const ThreadPage = ({
                       key={i}
                       isSelected={activeCanvasTab === i}
                       onClick={() => setActiveCanvasTab(i)}>
-                      {item.title || (item.type === 'query' ? 'Query' : `Asset ${i + 1}`)}
+                      {item.title ||
+                        (item.type === 'query' ? 'Query' : `Asset ${i + 1}`)}
                     </OuiTab>
                   ))}
                 </OuiTabs>
@@ -1208,7 +1272,9 @@ export const ThreadPage = ({
                       <>
                         {item.type === 'page' && (
                           <OuiText size="s" color="subdued">
-                            <p>{item.description || 'Dashboard view placeholder'}</p>
+                            <p>
+                              {item.description || 'Dashboard view placeholder'}
+                            </p>
                           </OuiText>
                         )}
                         {item.type === 'link-preview' && (
@@ -1221,7 +1287,10 @@ export const ThreadPage = ({
                             <OuiText size="s">
                               {item.description && <p>{item.description}</p>}
                               <p>
-                                <a href={item.href} target="_blank" rel="noopener noreferrer">
+                                <a
+                                  href={item.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer">
                                   {item.href}
                                 </a>
                               </p>
@@ -1265,7 +1334,11 @@ export const ThreadPage = ({
                           </div>
                         )}
                         {item.type === 'code-block' && (
-                          <OuiCodeBlock language={item.language} fontSize="s" paddingSize="m" isCopyable>
+                          <OuiCodeBlock
+                            language={item.language}
+                            fontSize="s"
+                            paddingSize="m"
+                            isCopyable>
                             {item.code}
                           </OuiCodeBlock>
                         )}
@@ -1275,10 +1348,20 @@ export const ThreadPage = ({
                               <div key={di} className="threadPage__chartBarCol">
                                 <div
                                   className="threadPage__chartBar"
-                                  style={{ height: `${(d.value / Math.max(...item.data.map((x) => x.value))) * 100}%` }}
+                                  style={{
+                                    height: `${
+                                      (d.value /
+                                        Math.max(
+                                          ...item.data.map((x) => x.value)
+                                        )) *
+                                      100
+                                    }%`,
+                                  }}
                                   title={`${d.label}: ${d.value}`}
                                 />
-                                <span className="threadPage__chartBarLabel">{d.label}</span>
+                                <span className="threadPage__chartBarLabel">
+                                  {d.label}
+                                </span>
                               </div>
                             ))}
                           </div>

@@ -10,6 +10,7 @@
  */
 
 /* eslint-disable import/no-named-as-default-member */
+// eslint-disable-next-line import/no-unresolved
 import fc from 'fast-check';
 import { reorderItems } from '../../src-docs/src/views/sample_pages/nav_layout_utils';
 

@@ -145,10 +145,7 @@ export const AskAiInline = ({
   // Click outside to dismiss
   const handleClickOutside = useCallback(
     (e) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(e.target)
-      ) {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
         onClose();
       }
     },

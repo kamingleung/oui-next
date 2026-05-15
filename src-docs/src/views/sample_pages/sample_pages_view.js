@@ -72,7 +72,12 @@ const renderPage = (
     case 'home':
       return (
         <OuiErrorBoundary>
-          <HomePage onNavigate={onNavigate} onContinueAsThread={onContinueAsThread} isAskAiPanelOpen={isAskAiPanelOpen} onAskAiToggle={onAskAiToggle} />
+          <HomePage
+            onNavigate={onNavigate}
+            onContinueAsThread={onContinueAsThread}
+            isAskAiPanelOpen={isAskAiPanelOpen}
+            onAskAiToggle={onAskAiToggle}
+          />
         </OuiErrorBoundary>
       );
     case 'logs':
@@ -168,31 +173,51 @@ const renderPage = (
     case 'application-map':
       return (
         <OuiErrorBoundary>
-          <ApplicationMapPage onContinueAsThread={onContinueAsThread} isAskAiPanelOpen={isAskAiPanelOpen} onAskAiToggle={onAskAiToggle} />
+          <ApplicationMapPage
+            onContinueAsThread={onContinueAsThread}
+            isAskAiPanelOpen={isAskAiPanelOpen}
+            onAskAiToggle={onAskAiToggle}
+          />
         </OuiErrorBoundary>
       );
     case 'topology-map':
       return (
         <OuiErrorBoundary>
-          <TopologyMapPage onContinueAsThread={onContinueAsThread} isAskAiPanelOpen={isAskAiPanelOpen} onAskAiToggle={onAskAiToggle} />
+          <TopologyMapPage
+            onContinueAsThread={onContinueAsThread}
+            isAskAiPanelOpen={isAskAiPanelOpen}
+            onAskAiToggle={onAskAiToggle}
+          />
         </OuiErrorBoundary>
       );
     case 'agent-monitoring-traces':
       return (
         <OuiErrorBoundary>
-          <AgentMonitoringTracesPage onContinueAsThread={onContinueAsThread} isAskAiPanelOpen={isAskAiPanelOpen} onAskAiToggle={onAskAiToggle} />
+          <AgentMonitoringTracesPage
+            onContinueAsThread={onContinueAsThread}
+            isAskAiPanelOpen={isAskAiPanelOpen}
+            onAskAiToggle={onAskAiToggle}
+          />
         </OuiErrorBoundary>
       );
     case 'agent-monitoring-spans':
       return (
         <OuiErrorBoundary>
-          <AgentMonitoringSpansPage onContinueAsThread={onContinueAsThread} isAskAiPanelOpen={isAskAiPanelOpen} onAskAiToggle={onAskAiToggle} />
+          <AgentMonitoringSpansPage
+            onContinueAsThread={onContinueAsThread}
+            isAskAiPanelOpen={isAskAiPanelOpen}
+            onAskAiToggle={onAskAiToggle}
+          />
         </OuiErrorBoundary>
       );
     case 'app-perf-traces':
       return (
         <OuiErrorBoundary>
-          <AppPerfTracesPage onContinueAsThread={onContinueAsThread} isAskAiPanelOpen={isAskAiPanelOpen} onAskAiToggle={onAskAiToggle} />
+          <AppPerfTracesPage
+            onContinueAsThread={onContinueAsThread}
+            isAskAiPanelOpen={isAskAiPanelOpen}
+            onAskAiToggle={onAskAiToggle}
+          />
         </OuiErrorBoundary>
       );
     case 'notebooks':
@@ -212,7 +237,11 @@ const renderPage = (
     case 'anomaly-dashboard':
       return (
         <OuiErrorBoundary>
-          <AnomalyDashboardPage onContinueAsThread={onContinueAsThread} isAskAiPanelOpen={isAskAiPanelOpen} onAskAiToggle={onAskAiToggle} />
+          <AnomalyDashboardPage
+            onContinueAsThread={onContinueAsThread}
+            isAskAiPanelOpen={isAskAiPanelOpen}
+            onAskAiToggle={onAskAiToggle}
+          />
         </OuiErrorBoundary>
       );
     case 'detectors':
@@ -232,7 +261,11 @@ const renderPage = (
     case 'forecasters':
       return (
         <OuiErrorBoundary>
-          <ForecastersPage onContinueAsThread={onContinueAsThread} isAskAiPanelOpen={isAskAiPanelOpen} onAskAiToggle={onAskAiToggle} />
+          <ForecastersPage
+            onContinueAsThread={onContinueAsThread}
+            isAskAiPanelOpen={isAskAiPanelOpen}
+            onAskAiToggle={onAskAiToggle}
+          />
         </OuiErrorBoundary>
       );
     case 'alerts-detail':
@@ -266,7 +299,11 @@ const renderPage = (
     case 'destinations':
       return (
         <OuiErrorBoundary>
-          <DestinationsPage onContinueAsThread={onContinueAsThread} isAskAiPanelOpen={isAskAiPanelOpen} onAskAiToggle={onAskAiToggle} />
+          <DestinationsPage
+            onContinueAsThread={onContinueAsThread}
+            isAskAiPanelOpen={isAskAiPanelOpen}
+            onAskAiToggle={onAskAiToggle}
+          />
         </OuiErrorBoundary>
       );
     case 'data-sources':
@@ -342,7 +379,11 @@ const renderPage = (
     case 'manage-workspace':
       return (
         <OuiErrorBoundary>
-          <WorkspacePage onContinueAsThread={onContinueAsThread} isAskAiPanelOpen={isAskAiPanelOpen} onAskAiToggle={onAskAiToggle} />
+          <WorkspacePage
+            onContinueAsThread={onContinueAsThread}
+            isAskAiPanelOpen={isAskAiPanelOpen}
+            onAskAiToggle={onAskAiToggle}
+          />
         </OuiErrorBoundary>
       );
     case 'ai-skills':
@@ -412,10 +453,47 @@ const renderPage = (
     default:
       return (
         <OuiErrorBoundary>
-          <ServicePage onContinueAsThread={onContinueAsThread} isAskAiPanelOpen={isAskAiPanelOpen} onAskAiToggle={onAskAiToggle} />
+          <ServicePage
+            onContinueAsThread={onContinueAsThread}
+            isAskAiPanelOpen={isAskAiPanelOpen}
+            onAskAiToggle={onAskAiToggle}
+          />
         </OuiErrorBoundary>
       );
   }
+};
+
+const DEFAULT_ITEMS = {
+  service: 'services',
+  logs: null,
+  metrics: null,
+  thread: 'latency-spike',
+  alerts: 'cpu-threshold',
+  dashboards: 'system-overview',
+  skills: 'anomaly-detector',
+  assets: 'web-server-fleet',
+  'topology-map': null,
+  'agent-monitoring-traces': null,
+  'agent-monitoring-spans': null,
+  'app-perf-traces': null,
+  'app-perf-services': null,
+  tools: null,
+  notebooks: 'notebook-runbook',
+  'anomaly-dashboard': null,
+  detectors: 'detector-cpu',
+  forecasters: null,
+  'alerts-detail': 'alert-cpu-threshold',
+  'monitors-detail': 'monitor-uptime',
+  destinations: null,
+  'data-sources': 'ds-faos219prod',
+  'index-patterns': 'ip-logs',
+  datasets: 'dataset-web-logs',
+  'assets-detail': 'asset-web-fleet',
+  'sample-data': 'sample-ecommerce',
+  'ai-skills': 'skill-anomaly-detector',
+  'ai-memories': 'memory-incident-patterns',
+  'ai-automations': 'auto-alert-triage',
+  'ai-mcp-servers': 'mcp-opensearch',
 };
 
 export const SamplePagesView = () => {
@@ -550,12 +628,14 @@ export const SamplePagesView = () => {
           {
             key: 'query-5xx-responses',
             title: '5xx responses',
-            subtitle: 'source=logs | where status >= 500 | stats count() by path',
+            subtitle:
+              'source=logs | where status >= 500 | stats count() by path',
           },
           {
             key: 'query-top-users',
             title: 'Top users by request count',
-            subtitle: 'source=logs | stats count() as requests by user | sort -requests | head 50',
+            subtitle:
+              'source=logs | stats count() as requests by user | sort -requests | head 50',
           },
         ],
       },
@@ -605,17 +685,20 @@ export const SamplePagesView = () => {
           {
             key: 'query-disk-io',
             title: 'Disk I/O by volume',
-            subtitle: 'source=metrics | stats avg(disk_io) by volume | sort -avg_disk_io',
+            subtitle:
+              'source=metrics | stats avg(disk_io) by volume | sort -avg_disk_io',
           },
           {
             key: 'query-network-errors',
             title: 'Network error rate',
-            subtitle: 'source=metrics | where net_errors > 0 | stats sum(net_errors) by interface',
+            subtitle:
+              'source=metrics | where net_errors > 0 | stats sum(net_errors) by interface',
           },
           {
             key: 'query-gc-pauses',
             title: 'GC pause duration',
-            subtitle: 'source=metrics | stats max(gc_pause_ms) by service | sort -max_gc_pause_ms',
+            subtitle:
+              'source=metrics | stats max(gc_pause_ms) by service | sort -max_gc_pause_ms',
           },
         ],
       },
@@ -894,13 +977,12 @@ export const SamplePagesView = () => {
   const panelConfig = PANEL_CONFIGS[activePage];
 
   // Reset panel to open when switching pages (unless navigated from popover item)
-  const PANEL_CLOSED_BY_DEFAULT = new Set(['logs', 'metrics']);
-
   useEffect(() => {
+    const panelClosedByDefault = new Set(['logs', 'metrics']);
     if (skipPanelOpenRef.current) {
       skipPanelOpenRef.current = false;
       setIsPanelOpen(false);
-    } else if (PANEL_CLOSED_BY_DEFAULT.has(activePage)) {
+    } else if (panelClosedByDefault.has(activePage)) {
       setIsPanelOpen(false);
     } else {
       setIsPanelOpen(true);
@@ -916,43 +998,10 @@ export const SamplePagesView = () => {
     }, 200);
   }, []);
 
-  const DEFAULT_ITEMS = {
-    service: 'services',
-    logs: null,
-    metrics: null,
-    thread: 'latency-spike',
-    alerts: 'cpu-threshold',
-    dashboards: 'system-overview',
-    skills: 'anomaly-detector',
-    assets: 'web-server-fleet',
-    'topology-map': null,
-    'agent-monitoring-traces': null,
-    'agent-monitoring-spans': null,
-    'app-perf-traces': null,
-    'app-perf-services': null,
-    tools: null,
-    notebooks: 'notebook-runbook',
-    'anomaly-dashboard': null,
-    detectors: 'detector-cpu',
-    forecasters: null,
-    'alerts-detail': 'alert-cpu-threshold',
-    'monitors-detail': 'monitor-uptime',
-    destinations: null,
-    'data-sources': 'ds-faos219prod',
-    'index-patterns': 'ip-logs',
-    datasets: 'dataset-web-logs',
-    'assets-detail': 'asset-web-fleet',
-    'sample-data': 'sample-ecommerce',
-    'ai-skills': 'skill-anomaly-detector',
-    'ai-memories': 'memory-incident-patterns',
-    'ai-automations': 'auto-alert-triage',
-    'ai-mcp-servers': 'mcp-opensearch',
-  };
-
   const handlePageChange = (page) => {
     if (page === activePage) {
       // Re-clicking the same tab — reopen the panel if it was closed
-      if (!PANEL_CLOSED_BY_DEFAULT.has(page)) {
+      if (!new Set(['logs', 'metrics']).has(page)) {
         setIsPanelOpen(true);
         setIsPanelCollapsing(false);
       }
@@ -969,21 +1018,24 @@ export const SamplePagesView = () => {
     setSelectedItem(itemKey || null);
   }, []);
 
-  const handleViewAll = useCallback((page) => {
-    if (page === activePage) {
-      setIsPanelOpen(true);
-      setIsPanelCollapsing(false);
-    } else {
-      skipPanelOpenRef.current = true;
-      setActivePage(page);
-      setSelectedItem(DEFAULT_ITEMS[page] || null);
-      // Force panel open after the skipPanelOpenRef useEffect runs
-      setTimeout(() => {
+  const handleViewAll = useCallback(
+    (page) => {
+      if (page === activePage) {
         setIsPanelOpen(true);
         setIsPanelCollapsing(false);
-      }, 0);
-    }
-  }, [activePage]);
+      } else {
+        skipPanelOpenRef.current = true;
+        setActivePage(page);
+        setSelectedItem(DEFAULT_ITEMS[page] || null);
+        // Force panel open after the skipPanelOpenRef useEffect runs
+        setTimeout(() => {
+          setIsPanelOpen(true);
+          setIsPanelCollapsing(false);
+        }, 0);
+      }
+    },
+    [activePage]
+  );
 
   const handleNavAskAi = useCallback((text) => {
     setNavAskAiInitialPrompt(text || '');
@@ -1169,34 +1221,37 @@ export const SamplePagesView = () => {
           )}
           {panelConfig && isPanelOpen && (
             <>
-            <div
-              className={`detailPageFlyout__cover${
-                isPanelCollapsing ? ' detailPageFlyout__cover--closing' : ''
-              }`}
-              onClick={handlePanelClose}
-            />
-            <div
-              className={`detailPageFlyout${
-                isPanelCollapsing ? ' detailPageFlyout--closing' : ''
-              }`}>
-              <DetailPagePanel
-                title={panelConfig.title}
-                items={panelConfig.items}
-                tabs={panelConfig.tabs}
-                tabItems={panelConfig.tabItems}
-                selectedItem={selectedItem}
-                onItemSelect={(key) => {
-                  setSelectedItem(key);
-                  handlePanelClose();
-                }}
-                onClose={handlePanelClose}
+              <div
+                className={`detailPageFlyout__cover${
+                  isPanelCollapsing ? ' detailPageFlyout__cover--closing' : ''
+                }`}
+                onClick={handlePanelClose}
               />
-            </div>
+              <div
+                className={`detailPageFlyout${
+                  isPanelCollapsing ? ' detailPageFlyout--closing' : ''
+                }`}>
+                <DetailPagePanel
+                  title={panelConfig.title}
+                  items={panelConfig.items}
+                  tabs={panelConfig.tabs}
+                  tabItems={panelConfig.tabItems}
+                  selectedItem={selectedItem}
+                  onItemSelect={(key) => {
+                    setSelectedItem(key);
+                    handlePanelClose();
+                  }}
+                  onClose={handlePanelClose}
+                />
+              </div>
             </>
           )}
         </div>
         {isAskAiPanelOpen && (
-          <div className={`askAiPanel${isAskAiPanelClosing ? ' askAiPanel--closing' : ''}`}>
+          <div
+            className={`askAiPanel${
+              isAskAiPanelClosing ? ' askAiPanel--closing' : ''
+            }`}>
             <AskAiPopover
               isOpen={isAskAiPanelOpen}
               mode="panel"

@@ -9,5 +9,44 @@
  * GitHub history for details.
  */
 
-// This file contains no overwrites because OUI by default is light.
-// The file exists in case you ever need to write logic to flip imports in a build process.
+// Agentic OSD – Utility Light Theme
+// Blue-forward identity with cool navy-tinted neutrals
+
+// Core
+$ouiColorPrimary: #2E4A8F;
+$ouiColorSecondary: #4DC9A8;
+$ouiColorAccent: #4168B8;
+
+// Status
+$ouiColorSuccess: #4DC9A8;
+$ouiColorWarning: #CDA849;
+$ouiColorDanger: #ED6F73;
+
+// Grays – Navy-tinted cool neutrals
+$ouiColorEmptyShade: #FFF;
+$ouiColorLightestShade: #E4EAF2;
+$ouiColorLightShade: #D4DCE8;
+$ouiColorMediumShade: #5A6D8A;
+$ouiColorDarkShade: #1E2A4A;
+$ouiColorDarkestShade: #0E1525;
+$ouiColorFullShade: #060D1A;
+
+// Backgrounds
+$ouiPageBackgroundColor: #F4F6FB;
+$ouiColorHighlight: #EDF1F8;
+
+// Text
+$ouiTextColor: #1E2A4A;
+$ouiTitleColor: #0E1525;
+$ouiTextSubduedColor: #5A6D8A;
+
+// Form
+$ouiFormBackgroundColor: #FFF;
+
+// Border
+$ouiBorderColor: #D4DCE8;
+
+// Shadows
+$ouiShadowColor: #0E1525;
+$ouiShadowColorLarge: #0E1525;
+$ouiShadowOpacity: .06;
